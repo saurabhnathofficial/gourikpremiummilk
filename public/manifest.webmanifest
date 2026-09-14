@@ -1,0 +1,25 @@
+{
+    "id": "/gourik-premium-milk/public/",
+    "name": "Gourik Premium Milk",
+    "short_name": "Gourik Milk",
+    "description": "Gourik Premium Milk - Milk collection and farmer management system.",
+    "lang": "en-IN",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#F7FAF8",
+    "theme_color": "#06264A",
+    "icons": [
+        {
+            "src": "images/pwa-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "images/pwa-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

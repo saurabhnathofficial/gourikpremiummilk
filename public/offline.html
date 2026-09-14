@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta name="theme-color" content="#06264A">
+
+    <title>Gourik Milk - Offline</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 24px;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #F7FAF8;
+            color: #172033;
+        }
+
+        .offline-card {
+            width: 100%;
+            max-width: 430px;
+
+            text-align: center;
+
+            background: #FFFFFF;
+
+            padding: 40px 30px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .offline-icon {
+            width: 80px;
+            height: 80px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #06264A;
+            color: #FFFFFF;
+
+            font-size: 34px;
+        }
+
+        h1 {
+            margin-bottom: 12px;
+
+            color: #06264A;
+
+            font-size: 28px;
+        }
+
+        p {
+            margin-bottom: 24px;
+
+            color: #667085;
+
+            line-height: 1.6;
+        }
+
+        button {
+            border: 0;
+
+            padding: 12px 22px;
+
+            border-radius: 8px;
+
+            background: #198754;
+            color: #FFFFFF;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="offline-card">
+
+        <div class="offline-icon">
+            ☁
+        </div>
+
+        <h1>
+            You're Offline
+        </h1>
+
+        <p>
+            It looks like you're currently not connected
+            to the internet.
+        </p>
+
+        <button onclick="location.reload()">
+            Try Again
+        </button>
+
+    </div>
+
+</body>
+
+</html>

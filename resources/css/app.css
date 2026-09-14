@@ -1,11 +1,1186 @@
-@import 'tailwindcss';
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+/* ========================================
+   GOURIK GLOBAL VARIABLES
+======================================== */
+
+:root {
+    --gourik-navy: #06264A;
+    --gourik-green: #198754;
+    --gourik-light-green: #C8E2D6;
+    --gourik-light: #F7FAF8;
+    --gourik-white: #FFFFFF;
+    --gourik-text: #172033;
+    --gourik-muted: #667085;
+}
+
+/* ========================================
+   GLOBAL
+======================================== */
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172033;
+}
+
+
+/* ========================================
+   TOP BAR
+======================================== */
+
+.gourik-topbar {
+    background-color: var(--gourik-navy);
+    color: var(--gourik-white);
+    font-size: 14px;
+    padding: 9px 0;
+}
+
+
+/* ========================================
+   MAIN NAVBAR
+======================================== */
+
+.gourik-navbar {
+    background-color: var(--gourik-white);
+    padding: 14px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.gourik-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.gourik-logo-image {
+    width: 185px;
+    height: auto;
+    display: block;
+}
+
+/* ========================================
+   NAVIGATION LINKS
+======================================== */
+
+.gourik-navbar .nav-link {
+    color: var(--gourik-navy);
+    font-weight: 500;
+    margin: 0 7px;
+    padding: 10px 4px !important;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.gourik-navbar .nav-link:hover {
+    color: var(--gourik-green);
+}
+
+.gourik-navbar .nav-link.active {
+    color: var(--gourik-navy);
+}
+
+.gourik-navbar .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 2px;
+    height: 3px;
+    border-radius: 5px;
+    background-color: var(--gourik-green);
+}
+
+.gourik-navbar .navbar-toggler {
+    border: 1px solid var(--gourik-light-green);
+    padding: 7px 10px;
+}
+
+.gourik-navbar .navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.15);
+}
+
+.gourik-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2306264A' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+/* ========================================
+   WHATSAPP BUTTON
+======================================== */
+
+.gourik-whatsapp-btn {
+    background-color: var(--gourik-green);
+    border: 1px solid var(--gourik-green);
+    color: var(--gourik-white);
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.gourik-whatsapp-btn:hover {
+    background-color: var(--gourik-navy);
+    border-color: var(--gourik-navy);
+    color: var(--gourik-white);
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 991.98px) {
+
+    .gourik-navbar {
+        padding: 10px 0;
+    }
+
+    .gourik-logo-image {
+        width: 150px;
+    }
+
+    .gourik-navbar .navbar-nav {
+        padding-top: 15px;
+    }
+
+    .gourik-navbar .nav-link {
+        margin: 4px 0;
+    }
+
+    .gourik-navbar .nav-link.active::after {
+        display: none;
+    }
+
+    .gourik-whatsapp-btn {
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .gourik-topbar {
+        font-size: 12px;
+    }
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.gourik-hero {
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.98) 0%,
+            rgba(255, 255, 255, 0.92) 35%,
+            rgba(255, 255, 255, 0.35) 65%,
+            rgba(255, 255, 255, 0.05) 100%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 0;
+}
+
+.hero-label {
+    display: inline-block;
+    color: var(--gourik-green);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero-content h1 {
+    color: var(--gourik-navy);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 5vw, 72px);
+    line-height: 1.05;
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+.hero-content h1 span {
+    display: block;
+    color: var(--gourik-green);
+}
+
+.hero-content p {
+    max-width: 560px;
+    color: #4d5b67;
+    font-size: 19px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+
+/* Buttons */
+
+.hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.gourik-primary-btn {
+    background-color: var(--gourik-navy);
+    border: 2px solid var(--gourik-navy);
+    color: #ffffff;
+    padding: 12px 24px;
+    font-weight: 600;
+}
+
+.gourik-primary-btn:hover {
+    background-color: var(--gourik-green);
+    border-color: var(--gourik-green);
+    color: #ffffff;
+}
+
+.gourik-primary-btn span {
+    margin-left: 10px;
+}
+
+.gourik-outline-btn {
+    border: 2px solid var(--gourik-green);
+    color: var(--gourik-green);
+    padding: 12px 24px;
+    font-weight: 600;
+}
+
+.gourik-outline-btn:hover {
+    background-color: var(--gourik-green);
+    color: #ffffff;
+}
+
+
+/* Trust */
+
+.hero-trust {
+    display: flex;
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.hero-trust div {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-trust strong {
+    color: var(--gourik-navy);
+    font-size: 20px;
+}
+
+.hero-trust small {
+    color: #667085;
+    font-size: 12px;
+}
+
+
+/* ========================================
+   HERO RESPONSIVE
+======================================== */
+
+@media (max-width: 991.98px) {
+
+    .gourik-hero {
+        min-height: 650px;
+        background-position: 65% center;
+    }
+
+    .hero-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(255,255,255,.97),
+                rgba(255,255,255,.70)
+            );
+    }
+
+    .hero-content {
+        padding: 70px 0;
+    }
+}
+
+
+@media (max-width: 575.98px) {
+
+    .gourik-hero {
+        min-height: 620px;
+        background-position: 70% center;
+    }
+
+    .hero-content {
+        padding: 55px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 44px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-trust {
+        gap: 18px;
+    }
+
+    .hero-trust strong {
+        font-size: 16px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+}
+
+
+/* ========================================
+   SECTION HEADING
+======================================== */
+
+.section-heading {
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+.section-heading > span {
+    display: inline-block;
+    color: var(--gourik-green);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.section-heading h2 {
+    color: var(--gourik-navy);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: var(--gourik-muted);
+    margin: 0;
+}
+
+
+/* ========================================
+   PRODUCTS
+======================================== */
+
+.gourik-products {
+    padding: 90px 0;
+    background-color: #ffffff;
+}
+
+.product-card {
+    height: 100%;
+    background: #ffffff;
+    border: 1px solid #e4ebe7;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(6, 38, 74, 0.10);
+}
+
+.product-image {
+    height: 250px;
+    overflow: hidden;
+    background-color: var(--gourik-light);
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-content {
+    padding: 22px;
+}
+
+.product-type {
+    color: var(--gourik-green);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+}
+
+.product-content h3 {
+    color: var(--gourik-navy);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    margin: 7px 0 8px;
+}
+
+.product-content p {
+    color: var(--gourik-muted);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 45px;
+    margin-bottom: 18px;
+}
+
+.product-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--gourik-green);
+    border-radius: 5px;
+    color: var(--gourik-green);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.product-btn:hover {
+    background-color: var(--gourik-green);
+    color: #ffffff;
+}
+
+.product-btn span {
+    font-size: 18px;
+}
+
+.products-more {
+    margin-top: 45px;
+}
+
+/* ========================================
+   WHY CHOOSE US
+======================================== */
+
+.gourik-why {
+    padding: 90px 0;
+    background: var(--gourik-light);
+}
+
+.why-card {
+    height: 100%;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #e3ebe6;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.25s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(6, 38, 74, 0.08);
+}
+
+.why-icon {
+    width: 62px;
+    height: 62px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #edf7f1;
+    color: var(--gourik-green);
+    font-size: 25px;
+}
+
+.why-card h3 {
+    color: var(--gourik-navy);
+    font-family: Georgia, serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.why-card p {
+    color: var(--gourik-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* ========================================
+   ABOUT
+======================================== */
+
+.gourik-about {
+    padding: 100px 0;
+    background: #ffffff;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.about-badge {
+    position: absolute;
+    right: -20px;
+    bottom: 25px;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: var(--gourik-green);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+}
+
+.about-badge strong {
+    font-size: 25px;
+}
+
+.about-badge span {
+    font-size: 12px;
+}
+
+.section-label {
+    color: var(--gourik-green);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.about-content h2 {
+    margin: 12px 0 22px;
+    color: var(--gourik-navy);
+    font-family: Georgia, serif;
+    font-size: clamp(35px, 4vw, 50px);
+    line-height: 1.15;
+}
+
+.about-content h2 span {
+    display: block;
+    color: var(--gourik-green);
+}
+
+.about-content p {
+    color: var(--gourik-muted);
+    line-height: 1.8;
+}
+
+.about-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 25px 0 30px;
+}
+
+.about-points div {
+    color: var(--gourik-navy);
+    font-weight: 600;
+}
+
+.about-points span {
+    color: var(--gourik-green);
+    margin-right: 8px;
+}
+
+
+/* ========================================
+   FARMERS
+======================================== */
+
+.gourik-farmers {
+    padding: 90px 0;
+    background: var(--gourik-light);
+}
+
+.farmer-card {
+    height: 100%;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e3ebe6;
+}
+
+.farmer-image {
+    height: 280px;
+    overflow: hidden;
+}
+
+.farmer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s ease;
+}
+
+.farmer-card:hover .farmer-image img {
+    transform: scale(1.05);
+}
+
+.farmer-content {
+    padding: 24px;
+}
+
+.farmer-content span {
+    color: var(--gourik-green);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.farmer-content h3 {
+    color: var(--gourik-navy);
+    font-family: Georgia, serif;
+    margin: 8px 0;
+}
+
+.farmer-content p {
+    color: var(--gourik-muted);
+    margin: 0;
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 767.98px) {
+
+    .gourik-why,
+    .gourik-about,
+    .gourik-farmers {
+        padding: 65px 0;
+    }
+
+    .about-image img {
+        height: 350px;
+    }
+
+    .about-badge {
+        right: 15px;
+        bottom: 15px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .about-points {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ========================================
+   REVIEWS
+======================================== */
+
+.gourik-reviews {
+    padding: 90px 0;
+    background: #ffffff;
+}
+
+.review-card {
+    height: 100%;
+    padding: 30px;
+    border: 1px solid #e3ebe6;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.review-quote {
+    color: var(--gourik-green);
+    font-family: Georgia, serif;
+    font-size: 55px;
+    line-height: 35px;
+}
+
+.review-card > p {
+    color: var(--gourik-text);
+    line-height: 1.7;
+    margin: 15px 0 25px;
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.review-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--gourik-light-green);
+    color: var(--gourik-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.review-author strong,
+.review-author small {
+    display: block;
+}
+
+.review-author strong {
+    color: var(--gourik-navy);
+}
+
+.review-author small {
+    color: var(--gourik-muted);
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+
+/* ========================================
+   CONTACT CTA
+======================================== */
+
+.gourik-contact {
+    padding: 80px 0;
+    background: var(--gourik-light);
+}
+
+.contact-box {
+    padding: 55px;
+    border-radius: 16px;
+    background: var(--gourik-navy);
+}
+
+.contact-box h2 {
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.15;
+    margin: 12px 0 18px;
+}
+
+.contact-box h2 span {
+    color: #8bcf9f;
+    display: block;
+}
+
+.contact-box p {
+    color: rgba(255, 255, 255, .75);
+    max-width: 650px;
+    margin: 0;
+    line-height: 1.7;
+}
+
+.contact-box .section-label {
+    color: #8bcf9f;
+}
+
+.contact-whatsapp-btn {
+    display: inline-block;
+    background: var(--gourik-green);
+    color: #ffffff;
+    padding: 13px 22px;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+.contact-whatsapp-btn:hover {
+    background: #ffffff;
+    color: var(--gourik-navy);
+}
+
+.contact-phone {
+    display: block;
+    margin-top: 14px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.gourik-footer {
+    background: #ffffff;
+    color: var(--gourik-text);
+    padding-top: 65px;
+}
+
+.footer-logo img {
+    width: 210px;
+    height: auto;
+}
+
+.gourik-footer > .container > .row {
+    padding-bottom: 50px;
+}
+
+.gourik-footer p {
+    color: var(--gourik-muted);
+    line-height: 1.7;
+    margin-top: 18px;
+    max-width: 380px;
+}
+
+.gourik-footer h3 {
+    color: var(--gourik-navy);
+    font-family: Georgia, serif;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.gourik-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.gourik-footer li {
+    margin-bottom: 10px;
+}
+
+.gourik-footer li a,
+.footer-contact a {
+    color: var(--gourik-muted);
+    text-decoration: none;
+}
+
+.gourik-footer li a:hover,
+.footer-contact a:hover {
+    color: var(--gourik-green);
+}
+
+.footer-contact p {
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+.footer-social a {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--gourik-green);
+    border-radius: 50%;
+
+    color: var(--gourik-green);
+    background: transparent;
+
+    text-decoration: none;
+    font-size: 19px;
+
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    background: var(--gourik-green);
+    border-color: var(--gourik-green);
+    color: #ffffff;
+
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    padding: 18px 0;
+    background: var(--gourik-navy);
+    color: rgba(255, 255, 255, .8);
+    font-size: 13px;
+}
+
+.footer-bottom a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 7px;
+}
+
+.footer-bottom a:hover {
+    color: #8bcf9f;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 767.98px) {
+
+    .contact-box {
+        padding: 35px 25px;
+    }
+
+    .contact-box .text-lg-end {
+        text-align: left !important;
+    }
+
+    .gourik-footer {
+        padding-top: 50px;
+    }
+}
+
+
+
+.page-header {
+    background: var(--gourik-navy);
+    color: var(--gourik-white);
+    padding: 90px 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.page-header p {
+    margin: 0;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+@media (max-width: 767px) {
+    .page-header {
+        padding: 60px 20px;
+    }
+
+    .page-header h1 {
+        font-size: 36px;
+    }
+
+    .page-header p {
+        font-size: 16px;
+    }
+}
+
+
+/* ========================================
+   GOURIK LOGIN
+======================================== */
+
+.gourik-login-page {
+    min-height: calc(100vh - 100px);
+    background: var(--gourik-light);
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.gourik-login-card {
+    background: #ffffff;
+    padding: 45px;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(6, 38, 74, 0.10);
+}
+
+.gourik-login-logo {
+    width: 190px;
+    max-width: 100%;
+}
+
+.gourik-login-card h1 {
+    color: var(--gourik-navy);
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.gourik-login-card p {
+    color: var(--gourik-muted);
+    margin-bottom: 0;
+}
+
+.gourik-login-card .form-label {
+    color: var(--gourik-navy);
+    font-weight: 600;
+}
+
+.gourik-login-card .form-control {
+    min-height: 48px;
+    border: 1px solid #d9e2dc;
+    border-radius: 10px;
+    padding: 10px 14px;
+}
+
+.gourik-login-card .form-control:focus {
+    border-color: var(--gourik-green);
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.12);
+}
+
+.gourik-login-btn {
+    min-height: 50px;
+    background: var(--gourik-green);
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.gourik-login-btn:hover {
+    background: var(--gourik-navy);
+    color: #ffffff;
+}
+
+@media (max-width: 575px) {
+
+    .gourik-login-page {
+        padding: 35px 15px;
+    }
+
+    .gourik-login-card {
+        padding: 30px 22px;
+    }
+
+    .gourik-login-logo {
+        width: 160px;
+    }
+}
+
+
+/* ========================================
+   GOURIK TOAST NOTIFICATION
+======================================== */
+
+.gourik-toast {
+    position: fixed;
+    top: 80px;
+    right: 25px;
+
+    z-index: 99999;
+
+    min-width: 320px;
+    max-width: 420px;
+
+    padding: 16px 20px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+
+    font-size: 14px;
+
+    animation: toastSlideIn 0.4s ease;
+}
+
+.success-toast {
+    background: #198754;
+    color: #ffffff;
+}
+
+.error-toast {
+    background: #dc3545;
+    color: #ffffff;
+}
+
+.gourik-toast i {
+    font-size: 21px;
+    margin-top: 1px;
+}
+
+.gourik-toast strong {
+    font-weight: 600;
+}
+
+
+/* Slide In */
+
+@keyframes toastSlideIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* Fade Out */
+
+@keyframes toastFadeOut {
+
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+}
+
+.toast-hide {
+    animation: toastFadeOut 0.5s ease forwards;
+}
+
+
+/* Mobile */
+
+@media (max-width: 576px) {
+
+    .gourik-toast {
+        top: 70px;
+        right: 15px;
+        left: 15px;
+
+        min-width: auto;
+        max-width: none;
+    }
+
 }
